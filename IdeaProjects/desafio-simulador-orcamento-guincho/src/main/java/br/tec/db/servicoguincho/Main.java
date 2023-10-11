@@ -22,6 +22,11 @@ public class Main {
 
             int tipoVeiculoEscolha = scanner.nextInt();
 
+            if (tipoVeiculoEscolha < 1 || tipoVeiculoEscolha > 4) {
+                System.out.println("Opção inválida. Por favor, escolha uma opção válida.");
+                return;
+            }
+
             TipoVeiculo tipoVeiculo = TipoVeiculo.values()[tipoVeiculoEscolha - 1];
 
 
@@ -88,7 +93,7 @@ public class Main {
             }
 
             Trajeto trajeto = new TrajetoEntreBairros(distanciaEmKM);
-            Veiculo veiculo = new VeiculoVeiculo(tipoVeiculo, estadoVeiculo);
+            Veiculo veiculo = new VeiculoDeTransporte(tipoVeiculo, estadoVeiculo);
             SimuladorDeOrcamento simulador = new SimuladorDeOrcamentoFinal(guincho);
 
             double custoTotal = simulador.calcularCustoTotal(veiculo, trajeto);
